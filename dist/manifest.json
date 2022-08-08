@@ -1,38 +1,72 @@
 {
-    "name": "TS/R/WP Chrome Extension",
-    "version": "0.0.1",
-    "manifest_version": 2,
-    "description": "Boilerplate for a Chrome extension with TypeScript, React, and Webpack...",
-    "homepage_url": "https://duo.com/labs",
-    "icons": {
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
+    
+  "manifest_version": 2,
+  
+  "name": "SpecK",
+  "description": "Fresha docs extension",
+  "homepage_url": "https://fresha.com",
+  "short_name": "Fresha docs extension",
+  "version": "1.0",
+  "default_locale": "en",
+  
+  "icons": {
+    "16": "icons/favicon-16.png",
+    "32": "icons/favicon-32.png",
+    "48": "icons/favicon-48.png",
+    "128": "icons/favicon-128.png"
+  },
+
+  "__chrome|firefox__author": "kpiotr",
+  "__opera__developer": {
+    "name": "kpiotr"
+  },
+
+  "__firefox__applications": {
+    "gecko": {
+      "id": "{754FB1AD-CC3B-4856-B6A0-7786F8CA9D17}"
+    }
+  },
+
+  "__chrome__minimum_chrome_version": "49",
+  "__opera__minimum_opera_version": "36",
+
+  "browser_action": {
+    "default_popup": "popup.js",
+    "default_icon": {
+      "16": "assets/icons/favicon-16.png",
+      "32": "assets/icons/favicon-32.png",
+      "48": "assets/icons/favicon-48.png",
+      "128": "assets/icons/favicon-128.png"
     },
-    "browser_action": {
-      "default_title": "TSRWPCX",
-      "default_popup": "popup.html"
-    },
-    "default_locale": "en",
-    "background": {
-      "scripts": [
-        "js/background.js"
-      ],
-      "persistent": true
-    },
-    "permissions": [
-      "https://*/*"
+    "default_title": "SpecK",
+    "__chrome|opera__chrome_style": false,
+    "__firefox__browser_style": false
+  },
+
+  
+  "background": {
+    "scripts": [
+      "js/background.js"
     ],
-    "content_security_policy": "default-src 'self';",
-    "content_scripts": [
-      {
-        "matches": [
-          "https://*/*"
-        ],
-        "js": [
-          "js/content.js"
-        ]
-      }
+    "__chrome|opera__persistent": false
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "https://*.fresha.io/*",
+    "https://*.fresha.com/*"
+  ],
+
+  "content_scripts": [{
+    "matches": [
+      "https://*.fresha.io/*",
+      "https://*.fresha.com/*",
+      "https://docs.google.com/spreadsheets/d/17exUdQOxyeYDZVCQ7LqAoPTn0jopCcaINID0TgrTKHI/edit#gid=0"
+    ],
+    "js": [
+      "js/content.js"
     ]
+  }]
   }
   
